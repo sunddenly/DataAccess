@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="config/properties/db.properties"/>
+
+
+	<typeAliases>
+		<typeAlias type="com.hebut.builder.pojo.User" alias="_User"/>
+		<typeAlias type="com.hebut.builder.pojo.Order" alias="_Order"/>
+		<package name="com.hebut.builder.pojo"/>
+	</typeAliases>
+
+
+	<!--配置Mysql数据源-->
+	<environments default="development" >
+
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/hebut/builder/mapper/xml/userMapper.xml"/>
+		<mapper resource="com/hebut/builder/mapper/xml/orderMapper.xml"/>
+		<mapper resource="com/hebut/builder/mapper/xml/classMapper.xml"/>
+
+		<mapper resource="com/hebut/builder/mapper/xml/conditionUserMapper.xml"/>
+
+		<mapper resource="com/hebut/builder/mapper/xml/puserMapper.xml"/>
+		<mapper resource="com/hebut/builder/mapper/xml/cuserMapper.xml"/>
+		<mapper class="com.hebut.builder.mapper.ano.UserMapper"/>
+
+	</mappers>
+</configuration>

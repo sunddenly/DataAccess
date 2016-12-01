@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.hebut.sese</groupId>
+  <artifactId>hibernate</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>hibernate Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>4.2.4.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.21</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.2</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>hibernate</finalName>
+      <plugins>
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>hibernate3-maven-plugin</artifactId>
+              <version>2.2</version>
+
+              <dependencies>
+                  <!-- mysql链接驱动，如果是Oracle的就换成Oracle的驱动 -->
+                  <dependency>
+                      <groupId>mysql</groupId>
+                      <artifactId>mysql-connector-java</artifactId>
+                      <version>5.1.21</version>
+                  </dependency>
+                  <dependency>
+                      <groupId>cglib</groupId>
+                      <artifactId>cglib</artifactId>
+                      <version>2.2</version>
+                  </dependency>
+                  <dependency>
+                      <groupId>org.hibernate</groupId>
+                      <artifactId>ejb3-persistence</artifactId>
+                      <version>3.3.2.Beta1</version>
+                  </dependency>
+              </dependencies>
+
+              <!-- 运行命令： mvn hibernate3:hbm2java hibernate3:hbm2hbmxml -->
+              <configuration>
+                  <components>
+                      <!-- 映射文件夹 项目目录下运行命令：mvn hibernate3:hbm2hbmxml -->
+                      <component>
+                          <name>hbm2hbmxml</name>
+                          <implementation>jdbcconfiguration</implementation>
+                          <outputDirectory>src/main/java/</outputDirectory>
+                      </component>
+                      <!-- 实体类 项目目录下运行命令：mvn hibernate3:hbm2java -->
+                      <component>
+                          <name>hbm2java</name>
+                          <outputDirectory>src/main/java</outputDirectory>
+                          <implementation>jdbcconfiguration</implementation>
+                      </component>
+                  </components>
+
+                  <componentProperties>
+                      <revengfile>src/main/resources/config/hibernate.reveng.xml</revengfile> <!-- 生成指定表名的实体类和映射文件（不配置则生成所有的数据表） -->
+                      <configurationfile>src/main/resources/config/hibernate.cfg.xml</configurationfile><!--  hibernate总配置文件，注意是链接数据库的信息 -->
+                      <packagename>plugin/hibernate</packagename> <!-- 输出的包名 -->
+                      <ejb3>false</ejb3> <!-- true为注解实体类方式，只需要生成java类即可，false为映射文件和非注解java实体类，结合 -->
+                  </componentProperties>
+
+                  <!--        1、如果你要生成注解方式的 java文件，就运行 mvn hibernate3:hbm2java
+                              2、如果你要生成 hbm.xml 配合 java 的形式就先把 pom 里面 <ejb3>false</ejb3> 弄成false
+                              然后分别运行 mvn hibernate3:hbm2hbmxml 和 mvn hibernate3:hbm2java -->
+              </configuration>
+
+          </plugin>
+      </plugins>
+  </build>
+</project>

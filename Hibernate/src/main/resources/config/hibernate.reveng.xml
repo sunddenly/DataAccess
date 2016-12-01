@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering
+        SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+<hibernate-reverse-engineering>
+    <!--<schema-selection match-schema="TMDCS"/>-->
+    <!-- <table-filter match-schema="cityhome"  match-name=".*"/> -->
+    <schema-selection match-schema="hibernate" match-table="news"/>
+</hibernate-reverse-engineering>
+
+        <!--
+        <componentProperties>
+            <revengfile>src/main/resources/hibernate.reveng.xml</revengfile>
+        </componentProperties>
+        在componentProperties中增加revengfile标签并指明文件的路径
+        关于hibernate.reveng.xml的代码示例如下：
+        match-schema="cityhome"//cityhome表示数据库名称，
+        match-table="ACCOUNT" // ACCOUNT表示cityhome数据库的ACCOUNT数据表名称
+        match-schema=" COMMON_SCHEMA"  数据库拥有着match-table="ACCOUNT"  表名 支持"CODES_开头的表名match-table="CODES_.*"
+        上述配置文件起到的作用就是在schema cityhome 中 只生成 ACCOUNT这个表的java实体类，其他的都被过滤了！
+        Reveng.xml有很多种反向控制，这里只介绍了最简单的一种，如果不满足，可以参考hibernate tools 查询其他更详细的配置
+         -->
