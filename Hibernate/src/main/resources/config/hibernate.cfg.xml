@@ -13,7 +13,10 @@
         <!-- 配置 hibernate 的基本信息 -->
 
         <!-- hibernate 所使用的数据库方言 -->
-        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <!-- 设置 Hibernate 的事务隔离级别：readcommit -->
+        <property name="connection.isolation">2</property>
 
         <!-- 执行操作时是否在控制台打印 SQL -->
         <property name="show_sql">true</property>

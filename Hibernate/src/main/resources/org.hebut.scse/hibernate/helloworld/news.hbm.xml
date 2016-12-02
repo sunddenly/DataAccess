@@ -28,9 +28,9 @@
                   formula="(SELECT concat(title, ',', author) FROM NEWS n WHERE n.id = id)"></property>
 
         <property name="content">
-            <column name="CONTENT" sql-type="text"></column>
+            <column name="CONTENT" sql-type="text"/>
         </property>
 
-        <property name="picture" column="PICTURE" type="blob"></property>
+        <property name="picture" column="PICTURE" type="blob"/>
     </class>
 </hibernate-mapping>
