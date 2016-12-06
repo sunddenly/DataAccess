@@ -4,12 +4,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.jdbc.Work;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -85,31 +87,29 @@ public class HibernateCoreOpt {
 
     @Test
     public void testIdGenerator() throws InterruptedException{
-        News news = new News("AA", "aa", new java.sql.Date(new Date().getTime()));
+        News news = new News("DD", "aa", new java.sql.Date(new Date().getTime()));
         session.save(news);
 
-//		Thread.sleep(5000);
+		Thread.sleep(5000);
     }
 
     @Test
     public void testDynamicUpdate(){
         News news = (News) session.get(News.class, 1);
-        news.setAuthor("AABCD");
+        news.setAuthor("Addd");
 
     }
 
-//    @Test
-//    public void testDoWork(){
-//        session.doWork(new Work() {
-//
-//            @Override
-//            public void execute(Connection connection) throws SQLException {
-//                System.out.println(connection);
-//
-//                //调用存储过程.
-//            }
-//        });
-//    }
+    @Test
+    public void testDoWork(){
+        session.doWork(new Work() {
+            public void execute(Connection connection) throws SQLException {
+                System.out.println(connection);
+                //调用存储过程.
+//                connection.prepareCall("");
+            }
+        });
+    }
 
     /**
      * evict: 从 session 缓存中把指定的持久化对象移除
@@ -122,7 +122,7 @@ public class HibernateCoreOpt {
         news1.setTitle("AA");
         news2.setTitle("BB");
 
-        session.evict(news1);
+        session.evict(news1);//news1已经从缓存中移除，news1则不会得到更新
     }
 
     /**
@@ -151,9 +151,8 @@ public class HibernateCoreOpt {
     @Test
     public void testSaveOrUpdate(){
         News news = new News("FFF", "fff", new Date());
-        news.setId(11);
-
-        session.saveOrUpdate(news);
+        //news.setId(11);//有id执行update
+        session.saveOrUpdate(news);//没有id时执行save
     }
 
     /**
@@ -214,14 +213,14 @@ public class HibernateCoreOpt {
         News news = (News) session.load(News.class, 10);
         System.out.println(news.getClass().getName());
 
-//		session.close();
-//		System.out.println(news);
+        //session.close();//抛出LazyInitializationException异常，主要是由懒加载机制导致
+        //System.out.println(news);//使用时才执行sql
     }
 
     @Test
     public void testGet(){
         News news = (News) session.get(News.class, 1);
-//		session.close();
+        //session.close();//没有影响
         System.out.println(news);
     }
 

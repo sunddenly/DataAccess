@@ -16,4 +16,11 @@
 > 创建session
 > session.save(news);
 
-####2、HelloWorld项目
+####2、Hibernate 缓存
+test/HibernateCache  
+####3、Hibernate 核心操作
+test/HibernateCoreOpt
+####4、Hibernate 配置
+-c3p0 ==>1. resources/hibernate.cfg.xml  
+-jdbc.fetch_size ==>1. resources/hibernate.cfg.xml  
+
