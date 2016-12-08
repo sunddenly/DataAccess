@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-1-2 16:14:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="org.hebut.scse.hibernate.pojo.n21.twoway">
+    <class name="Customer" table="CUSTOMERS">
+    <id name="customerId" type="java.lang.Integer">
+            <column name="CUSTOMER_ID" />
+            <generator class="native" />
+        </id>
+
+        <property name="customerName" type="java.lang.String">
+            <column name="CUSTOMER_NAME" />
+        </property>
+        <set name="orders" table="ORDERS" order-by="ORDER_NAME DESC">
+            <!-- 执行多的表中的外键列的名字 -->
+            <key column="CUSTOMER_ID"></key>
+            <!-- 指定映射类型 -->
+            <one-to-many class="Order"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="org.hebut.scse.hibernate.helloworld">
-    <class name="News" table="news" dynamic-update="true">
+    <class name="org.hebut.scse.hibernate.News" table="news" dynamic-update="true">
         <id name="id" type="java.lang.Integer">
             <column name="ID"/>
             <!-- 指定主键的生成方式, native: 使用数据库本地方式 -->

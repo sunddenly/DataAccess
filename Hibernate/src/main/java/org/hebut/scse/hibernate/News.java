@@ -1,4 +1,4 @@
-package org.hebut.scse.hibernate.helloworld;
+package org.hebut.scse.hibernate;
 
 import java.sql.Blob;
 import java.util.Date;

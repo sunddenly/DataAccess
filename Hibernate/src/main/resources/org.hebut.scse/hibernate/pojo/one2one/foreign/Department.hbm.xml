@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-1-2 16:14:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="org.hebut.scse.hibernate.pojo.one2one.foreign">
+    <class name="Department" table="DEPARTMENTS">
+
+        <id name="deptId" type="java.lang.Integer">
+            <column name="DEPT_ID" />
+            <generator class="native" />
+        </id>
+
+        <property name="deptName" type="java.lang.String">
+            <column name="DEPT_NAME" />
+        </property>
+
+        <!-- 使用 many-to-one 的方式来映射 1-1 关联关系,对Department中的mgr属性的一种映射，并且mgr用MGR_ID来标识
+             不配置该属性时，Manager中的one to one 也就不能引用该属性-->
+        <many-to-one name="mgr" class="Manager" column="MGR_ID" unique="true" />
+
+    </class>
+</hibernate-mapping>

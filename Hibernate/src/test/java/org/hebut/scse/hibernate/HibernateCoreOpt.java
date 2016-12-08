@@ -1,5 +1,7 @@
-package org.hebut.scse.hibernate.helloworld;
-import javafx.concurrent.Worker;
+package org.hebut.scse.hibernate;
+
+import org.hebut.scse.hibernate.pojo.Pay;
+import org.hebut.scse.hibernate.pojo.Worker;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,6 +13,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
@@ -23,7 +27,7 @@ public class HibernateCoreOpt {
 
     @Before
     public void init(){
-        Configuration conf = new Configuration().configure("/config/hibernate.cfg.xml");
+        Configuration conf = HibernateUtil.conf;
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(conf.getProperties()).buildServiceRegistry();
         factory = conf.buildSessionFactory(serviceRegistry);
         session = factory.openSession();
@@ -38,42 +42,42 @@ public class HibernateCoreOpt {
     }
 
 
-//    @Test
-//    public void testComponent(){
-//        Worker worker = new Worker();
-//        Pay pay = new Pay();
-//
-//        pay.setMonthlyPay(1000);
-//        pay.setYearPay(80000);
-//        pay.setVocationWithPay(5);
-//
-//        worker.setName("ABCD");
-//        worker.setPay(pay);
-//
-//        session.save(worker);
-//    }
+    @Test
+    public void testComponent(){
+        Worker worker = new Worker();
+        Pay pay = new Pay();
+
+        pay.setMonthlyPay(1000);
+        pay.setYearPay(80000);
+        pay.setVocationWithPay(5);
+
+        worker.setName("ABCD");
+        worker.setPay(pay);
+
+        session.save(worker);
+    }
 
     @Test
     public void testBlob() throws Exception{
-//		News news = new News();
-//		news.setAuthor("cc");
-//		news.setContent("CONTENT");
-//		news.setDate(new Date());
-//		news.setDesc("DESC");
-//		news.setTitle("CC");
-//
-//		InputStream stream = new FileInputStream("Hydrangeas.jpg");
-//		Blob image = Hibernate.getLobCreator(session)
-//				              .createBlob(stream, stream.available());
-//		news.setImage(image);
-//
-//		session.save(news);
+/*		News news = new News();
+		news.setAuthor("cc");
+		news.setContent("CONTENT");
+		news.setDate(new Date());
+		news.setDes("DESC");
+		news.setTitle("34CC");
 
-//        News news = (News) session.get(News.class, 1);
-//        Blob image = news.getImage();
-//
-//        InputStream in = image.getBinaryStream();
-//        System.out.println(in.available());
+		InputStream stream = new FileInputStream("Hydrangeas.jpg");
+		Blob image = Hibernate.getLobCreator(session).createBlob(stream, stream.available());
+		news.setPicture(image);
+
+		session.save(news);*/
+
+        News news2 = (News) session.get(News.class, 393216);
+        System.out.println(news2);
+        Blob image2 = news2.getPicture();
+
+        InputStream in = image2.getBinaryStream();
+        System.out.println(in.available());
     }
 
     @Test

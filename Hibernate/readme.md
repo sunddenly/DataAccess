@@ -21,6 +21,22 @@ test/HibernateCache
 ####3、Hibernate 核心操作
 test/HibernateCoreOpt
 ####4、Hibernate 配置
--c3p0 ==>1. resources/hibernate.cfg.xml  
--jdbc.fetch_size ==>1. resources/hibernate.cfg.xml  
+涉及hibernate.cfg.xml文件  
 
+- c3p0              
+- jdbc.fetch_size  
+- jdbc.batch_size
+- show_sq 
+- format_sql
+- hbm2ddl.auto
+
+####5、Hibernate 映射配置
+涉及helloworld/news.hbm.xml和test/HibernateCoreOpt文件     
+
+- hibernate-mapping package  
+- class  dynamic-insert/select-before-update
+- id  OID/generator/generator
+- type 映射 时间/大对象
+
+####6、Hibernate 组成关系映射
+涉及 pojo包中的Worker和Pay

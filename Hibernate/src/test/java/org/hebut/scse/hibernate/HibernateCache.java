@@ -1,4 +1,4 @@
-package org.hebut.scse.hibernate.helloworld;
+package org.hebut.scse.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

@@ -1,4 +1,4 @@
-package org.hebut.scse.hibernate.helloworld;
+package org.hebut.scse.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.sql.Date;
 
-public class HelloWord {
+public class HelloWorld {
     /**
      * 获取Session
      * 1. 创建 Configuration 对象:
