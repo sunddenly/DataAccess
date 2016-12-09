@@ -1,4 +1,4 @@
-package org.hebut.scse.hibernate.pojo;
+package org.hebut.scse.hibernate.pojo.component;
 
 public class Pay {
 

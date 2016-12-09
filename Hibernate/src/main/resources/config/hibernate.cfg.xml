@@ -53,5 +53,8 @@
             <mapping resource="org.hebut.scse/hibernate/pojo/one2one/foreign/Manager.hbm.xml"/>
 <!--            <mapping resource="org.hebut.scse/hibernate/pojo/one2one/primary/Department.hbm.xml"/>
             <mapping resource="org.hebut.scse/hibernate/pojo/one2one/primary/Manager.hbm.xml"/>-->
+
+            <mapping resource="org.hebut.scse/hibernate/pojo/n2n/oneway/Category.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/n2n/oneway/Item.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

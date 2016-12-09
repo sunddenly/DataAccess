@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2014-1-2 16:14:33 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping package="org.hebut.scse.hibernate.pojo">
-    <class name="Worker" table="WORKER">
+    <class name="org.hebut.scse.hibernate.pojo.component.Worker" table="WORKER">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="native" />
@@ -13,7 +13,7 @@
         </property>
         
         <!-- 映射组成关系 -->
-        <component name="pay" class="Pay">
+        <component name="pay" class="org.hebut.scse.hibernate.pojo.component.Pay">
         	<parent name="worker"/>
         	<!-- 指定组成关系的组件的属性 -->
         	<property name="monthlyPay" column="MONTHLY_PAY"></property>

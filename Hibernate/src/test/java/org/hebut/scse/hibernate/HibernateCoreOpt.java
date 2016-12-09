@@ -1,7 +1,7 @@
 package org.hebut.scse.hibernate;
 
-import org.hebut.scse.hibernate.pojo.Pay;
-import org.hebut.scse.hibernate.pojo.Worker;
+import org.hebut.scse.hibernate.pojo.component.Pay;
+import org.hebut.scse.hibernate.pojo.component.Worker;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
