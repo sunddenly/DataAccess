@@ -33,7 +33,20 @@ public class Category {
 	public void setItems(Set<Item> items) {
 		this.items = items;
 	}
-	
-	
-	
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", items=" + items +
+                '}';
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
+
+    public Category() {
+    }
 }

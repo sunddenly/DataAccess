@@ -39,7 +39,32 @@
             <property name="jdbc.batch_size">30</property>
 
         <!-- 指定关联的 .hbm.xml 文件 -->
-        <mapping resource="org.hebut.scse/hibernate/pojo/hql/Employee.hbm.xml"/>
-        <mapping resource="org.hebut.scse/hibernate/pojo/hql/Department.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/helloworld/news.hbm.xml"/>
+
+            <mapping resource="org.hebut.scse/hibernate/pojo/Worker.hbm.xml"/>
+
+<!--            <mapping resource="org.hebut.scse/hibernate/pojo/n21/oneway/Customer.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/n21/oneway/Order.hbm.xml"/>-->
+
+<!--            <mapping resource="org.hebut.scse/hibernate/pojo/n21/twoway/Customer.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/n21/twoway/Order.hbm.xml"/>-->
+
+            <mapping resource="org.hebut.scse/hibernate/pojo/one2one/foreign/Department.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/one2one/foreign/Manager.hbm.xml"/>
+<!--            <mapping resource="org.hebut.scse/hibernate/pojo/one2one/primary/Department.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/one2one/primary/Manager.hbm.xml"/>-->
+
+<!--            <mapping resource="org.hebut.scse/hibernate/pojo/n2n/oneway/Category.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/n2n/oneway/Item.hbm.xml"/>-->
+
+            <mapping resource="org.hebut.scse/hibernate/pojo/n2n/twoway/Category.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/n2n/twoway/Item.hbm.xml"/>
+
+<!--            <mapping resource="org.hebut.scse/hibernate/pojo/inherit/subclass/Person.hbm.xml"/>-->
+<!--            <mapping resource="org.hebut.scse/hibernate/pojo/inherit/join/Person.hbm.xml"/>-->
+
+            <mapping resource="org.hebut.scse/hibernate/pojo/inherit/union/Person.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/strategy/class/Customer.hbm.xml"/>
+            <mapping resource="org.hebut.scse/hibernate/pojo/strategy/class/Order.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

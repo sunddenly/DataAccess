@@ -1,14 +1,14 @@
-package org.hebut.scse.hibernate.pojo.n2n.oneway;
+package org.hebut.scse.hibernate.pojo.hql;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Category {
+public class Department {
 
 	private Integer id;
 	private String name;
 	
-	private Set<Item> items = new HashSet<>();
+	private Set<Employee> emps = new HashSet<>();
 
 	public Integer getId() {
 		return id;
@@ -26,19 +26,19 @@ public class Category {
 		this.name = name;
 	}
 
-	public Set<Item> getItems() {
-		return items;
+	public Set<Employee> getEmps() {
+		return emps;
 	}
 
-	public void setItems(Set<Item> items) {
-		this.items = items;
+	public void setEmps(Set<Employee> emps) {
+		this.emps = emps;
 	}
 
-	public Category(String name) {
-		this.name = name;
+	@Override
+	public String toString() {
+		return "Department [id=" + id + "]";
 	}
-
-	public Category() {
-	}
+	
+	
 	
 }

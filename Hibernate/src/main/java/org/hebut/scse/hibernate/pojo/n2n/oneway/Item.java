@@ -28,4 +28,11 @@ public class Item {
 				", name='" + name + '\'' +
 				'}';
 	}
+
+	public Item() {
+	}
+
+	public Item(String name) {
+		this.name = name;
+	}
 }

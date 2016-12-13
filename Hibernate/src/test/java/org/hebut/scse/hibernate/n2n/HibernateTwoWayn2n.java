@@ -1,8 +1,8 @@
 package org.hebut.scse.hibernate.n2n;
 
 import org.hebut.scse.hibernate.HibernateUtil;
-import org.hebut.scse.hibernate.pojo.n2n.oneway.Category;
-import org.hebut.scse.hibernate.pojo.n2n.oneway.Item;
+import org.hebut.scse.hibernate.pojo.n2n.twoway.Category;
+import org.hebut.scse.hibernate.pojo.n2n.twoway.Item;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,7 +16,7 @@ import org.junit.Test;
 import java.util.Set;
 
 
-public class HibernateOneWayn2n {
+public class HibernateTwoWayn2n {
     private SessionFactory factory;
     private Session session;
     private Transaction transaction;
@@ -39,12 +39,14 @@ public class HibernateOneWayn2n {
 
     @Test
     public void testGet(){
-        Category category = (Category) session.get(Category.class, 1);
+        Category category = (Category) session.get(Category.class, 2);
         System.out.println(category.getName());
 
         //需要连接中间表
         Set<Item> items = category.getItems();
         System.out.println(items);
+
+        System.out.println(items.iterator().next().getCategories());
     }
 
     @Test
@@ -71,5 +73,5 @@ public class HibernateOneWayn2n {
 
         session.save(item1);
         session.save(item2);
-}
+    }
 }

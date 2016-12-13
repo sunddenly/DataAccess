@@ -36,4 +36,11 @@ public class Item {
 				", name='" + name + '\'' +
 				'}';
 	}
+
+	public Item(String name) {
+		this.name = name;
+	}
+
+	public Item() {
+	}
 }
